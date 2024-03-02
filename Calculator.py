@@ -78,6 +78,11 @@ class Calculator:
     def power(self, base, exponent):
         return base ** exponent
 
+    def gcd(self, a, b):
+        while b:
+            a, b = b, a % b
+        return a
+
 import unittest
 
 class TestCalculator(unittest.TestCase):
@@ -87,6 +92,14 @@ class TestCalculator(unittest.TestCase):
         exponent = 3
         expected_result = 8
         result = calculator.power(base, exponent)
+        self.assertEqual(result, expected_result)
+
+    def test_gcd(self):
+        calculator = Calculator()
+        a = 24
+        b = 36
+        expected_result = 12
+        result = calculator.gcd(a, b)
         self.assertEqual(result, expected_result)
 
 if __name__ == '__main__':
