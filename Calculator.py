@@ -8,6 +8,9 @@ class Calculator:
     def subtract(self, a, b):
         return a - b
 
+    def multiply(self, a, b):
+        return a * b
+
 
 class TestCalculator(unittest.TestCase):
 
@@ -34,6 +37,18 @@ class TestCalculator(unittest.TestCase):
 
         # Assert
         self.assertEqual(result, 7)
+
+    def test_multiply(self):
+        # Arrange
+        calculator = Calculator()
+        a = 4
+        b = 6
+
+        # Act
+        result = calculator.multiply(a, b)
+
+        # Assert
+        self.assertEqual(result, 24)
 
 
 if __name__ == '__main__':
