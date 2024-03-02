@@ -11,6 +11,11 @@ class Calculator:
     def multiply(self, a, b):
         return a * b
 
+    def divide(self, a, b):
+        if b == 0:
+            raise ValueError("Division by zero is not allowed")
+        return a / b
+
 
 class TestCalculator(unittest.TestCase):
 
@@ -49,6 +54,18 @@ class TestCalculator(unittest.TestCase):
 
         # Assert
         self.assertEqual(result, 24)
+
+    def test_divide(self):
+        # Arrange
+        calculator = Calculator()
+        a = 10
+        b = 2
+
+        # Act
+        result = calculator.divide(a, b)
+
+        # Assert
+        self.assertEqual(result, 5)
 
 
 if __name__ == '__main__':
