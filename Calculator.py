@@ -5,6 +5,9 @@ class Calculator:
     def add(self, a, b):
         return a + b
 
+    def subtract(self, a, b):
+        return a - b
+
 
 class TestCalculator(unittest.TestCase):
 
@@ -19,6 +22,18 @@ class TestCalculator(unittest.TestCase):
 
         # Assert
         self.assertEqual(result, 12)
+
+    def test_subtract(self):
+        # Arrange
+        calculator = Calculator()
+        a = 10
+        b = 3
+
+        # Act
+        result = calculator.subtract(a, b)
+
+        # Assert
+        self.assertEqual(result, 7)
 
 
 if __name__ == '__main__':
