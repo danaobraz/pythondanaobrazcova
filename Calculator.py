@@ -1,8 +1,7 @@
-<<<<<<< HEAD
+
 #git
 class Calculator:
     pass
-=======
 import unittest
 
 
@@ -75,4 +74,20 @@ class TestCalculator(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
->>>>>>> Obraztsova-basic-operations
+class Calculator:
+    def power(self, base, exponent):
+        return base ** exponent
+
+import unittest
+
+class TestCalculator(unittest.TestCase):
+    def test_power(self):
+        calculator = Calculator()
+        base = 2
+        exponent = 3
+        expected_result = 8
+        result = calculator.power(base, exponent)
+        self.assertEqual(result, expected_result)
+
+if __name__ == '__main__':
+    unittest.main()
