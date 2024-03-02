@@ -83,6 +83,9 @@ class Calculator:
             a, b = b, a % b
         return a
 
+    def lcm(self, a, b):
+        return abs(a * b) // self.gcd(a, b) if a and b else 0
+
 import unittest
 
 class TestCalculator(unittest.TestCase):
@@ -100,6 +103,14 @@ class TestCalculator(unittest.TestCase):
         b = 36
         expected_result = 12
         result = calculator.gcd(a, b)
+        self.assertEqual(result, expected_result)
+
+    def test_lcm(self):
+        calculator = Calculator()
+        a = 4
+        b = 6
+        expected_result = 12
+        result = calculator.lcm(a, b)
         self.assertEqual(result, expected_result)
 
 if __name__ == '__main__':
