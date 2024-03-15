@@ -28,7 +28,6 @@ class TestCalculator(unittest.TestCase):
         calculator = Calculator()
         a = 5
         b = 7
-
         # Act
         result = calculator.add(a, b)
 
