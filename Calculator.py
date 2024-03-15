@@ -71,11 +71,19 @@ class TestCalculator(unittest.TestCase):
         # Assert
         self.assertEqual(result, 5)
 
+    def test_divide_by_zero(self):
+        calculator = Calculator()
+        a = 10
+        b = 0
+        with self.assertRaises(ValueError):
+            calculator.divide(a, b)
 
 if __name__ == '__main__':
     unittest.main()
 class Calculator:
     def power(self, base, exponent):
+        if base == 0 and exponent == 0:
+            raise ArithmeticError("Indeterminate value: 0^0")
         return base ** exponent
 
     def gcd(self, a, b):
@@ -96,6 +104,13 @@ class TestCalculator(unittest.TestCase):
         expected_result = 8
         result = calculator.power(base, exponent)
         self.assertEqual(result, expected_result)
+
+    def test_power_zero_to_zero(self):
+        calculator = Calculator()
+        base = 0
+        exponent = 0
+        with self.assertRaises(ArithmeticError):
+            calculator.power(base, exponent)
 
     def test_gcd(self):
         calculator = Calculator()
